@@ -59,7 +59,7 @@ require_once __DIR__ . '/src/helperUser.php';
 
     <section class="u-align-center u-clearfix u-grey-10 u-section-3" id="sec-0504">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <div class="u-expanded-width u-products u-products-1" data-site-sorting-prop="created" data-site-sorting-order="desc" data-products-datasource="site" data-items-per-page="3" data-products-id="1">
+        <div class="u-expanded-width u-products u-products-1">
           <div class="u-repeater u-repeater-1">
             
           <?php
@@ -71,10 +71,11 @@ require_once __DIR__ . '/src/helperUser.php';
 
             if ($result->rowCount() > 0) {
               while ($map = $result->fetch(\PDO::FETCH_ASSOC)) {
-                echo include './src/map/map_mini.php';
+                include './src/map/userMap.php';
               }
             } else {
-              echo '<p class="u-text u-text-default u-text-1">This user has not posted his maps</p>';
+              echo "<p></p>";
+              echo '<h4 class="u-text u-text-default u-text-1">This user has not posted maps</h4>';
             }
           }
           ?>
@@ -89,7 +90,5 @@ require_once __DIR__ . '/src/helperUser.php';
         <p class="u-small-text u-text u-text-variant u-text-1">ZFGin, 2023</p>
       </div>
     </footer>
-
-    <?php include_once __DIR__ . '/components/scripts.php' ?>
   </body>
 </html>

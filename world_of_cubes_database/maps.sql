@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Ноя 16 2023 г., 05:45
+-- Время создания: Ноя 16 2023 г., 07:26
 -- Версия сервера: 10.4.28-MariaDB
 -- Версия PHP: 8.2.4
 
@@ -42,9 +42,10 @@ CREATE TABLE `maps` (
 --
 
 INSERT INTO `maps` (`id`, `icon`, `name`, `description`, `rating`, `archive`, `author`) VALUES
-(1, 'uploads/icon_map_1700101373.jpg', 'Example 1', 'Example description', 5, 'Maps/map_1700101373.zip', 2),
+(1, 'uploads/icon_map_1700101373.jpg', 'Example 1', 'Example description', 3.7, 'Maps/map_1700101373.zip', 2),
 (2, 'uploads/icon_map_1700101576.jpg', 'Example 2', 'Example description 2', 4.3, 'Maps/map_1700101576.zip', 2),
-(3, 'uploads/icon_map_1700101576.jpg', 'Example 3', 'Example description 3', 0, 'Maps/map_1700101576.zip', 2);
+(3, 'uploads/icon_map_1700101576.jpg', 'Example 3', 'Example description 3', 4.2, 'Maps/map_1700101576.zip', 2),
+(8, 'uploads/icon_map_1700115588.png', 'Чабуреки', 'Это не описание', 0, 'Maps/map_1700115588.zip', 6);
 
 --
 -- Индексы сохранённых таблиц
@@ -64,7 +65,7 @@ ALTER TABLE `maps`
 -- AUTO_INCREMENT для таблицы `maps`
 --
 ALTER TABLE `maps`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

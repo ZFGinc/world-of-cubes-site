@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Ноя 16 2023 г., 05:45
+-- Время создания: Ноя 16 2023 г., 07:26
 -- Версия сервера: 10.4.28-MariaDB
 -- Версия PHP: 8.2.4
 
@@ -40,8 +40,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`) VALUES
+(1, 'User_1', 'user1@mail.ru', '$2y$10$ciy2EyrbgVRrJKoJR.0rDuJWOMKZzsSDIuCeXFmkmOvNTbW0WxEUy', 'uploads/avatar_1700101506.jpg'),
 (2, 'Kizai', 'zfgcomp.01@gmail.com', '$2y$10$RW/Coub4o9jWRL/3W2zNGOzsol0Zt2hRYVgd0kLFSGingMYgAatXe', 'uploads/avatar_1700046232.jpg'),
-(5, 'User_1', 'user1@mail.ru', '$2y$10$ciy2EyrbgVRrJKoJR.0rDuJWOMKZzsSDIuCeXFmkmOvNTbW0WxEUy', 'uploads/avatar_1700101506.jpg');
+(6, 'user_2', 'user2@mail.ru', '$2y$10$AgMtiZFekzePZNNeoUEO3.AKQMm7f2NtqNHUALCedDB/.leGNGmJG', 'uploads/avatar_1700115477.png');
 
 --
 -- Индексы сохранённых таблиц
@@ -62,7 +63,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

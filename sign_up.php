@@ -128,7 +128,8 @@ checkGuest();
                           required=""
                           type="file"
                           id="avatar"
-                          name="avatar"
+                          name="avatar"\
+                          accept="image/png, image/jpeg"
                           <?php echo validationErrorAttr('avatar'); ?>
                       >
                       <?php if(hasValidationError('avatar')): ?>
