@@ -31,7 +31,7 @@ checkGuest();
       }
     </script>
 
-    <meta name="theme-color" content="#478ac9">
+    <meta name="theme-color" content="#A9EEE6">
     <meta property="og:title" content="sign_in">
     <meta property="og:type" content="website">
     <meta data-intl-tel-input-cdn-path="intlTelInput/">

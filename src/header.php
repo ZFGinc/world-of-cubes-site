@@ -23,16 +23,16 @@ $two = '<li class="u-nav-item">
           <div class="u-nav-container">
             <ul class="u-nav u-unstyled u-nav-1">
               <li class="u-nav-item">
-                <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#" style="padding: 10px 20px;">Maps</a>
+                <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/" style="padding: 10px 20px;">Maps</a>
               </li>
               <li class="u-nav-item">
-                <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#" style="padding: 10px 20px;">New map</a>
+                <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/upload_map.php" style="padding: 10px 20px;">New map</a>
               </li>
               <li class="u-nav-item">
-                <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#" style="padding: 10px 20px;">Download game</a>
+                <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="" style="padding: 10px 20px;">Download game</a>
               </li>
               <li class="u-nav-item">
-                <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/user" style="padding: 10px 20px;">Account</a>
+                <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/user.php" style="padding: 10px 20px;">Account</a>
               </li>
 
               <?php
@@ -50,13 +50,13 @@ $two = '<li class="u-nav-item">
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
-                  <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#">Maps</a>
+                  <li class="u-nav-item"><a class="u-button-style u-nav-link" href="/">Maps</a>
                   </li>
-                  <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#">New map</a>
+                  <li class="u-nav-item"><a class="u-button-style u-nav-link" href="/upload_map.php">New map</a>
                   </li>
-                  <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#">Download game</a>
+                  <li class="u-nav-item"><a class="u-button-style u-nav-link" href="">Download game</a>
                   </li>
-                  <li class="u-nav-item"><a class="u-button-style u-nav-link" href="/user">Account</a>
+                  <li class="u-nav-item"><a class="u-button-style u-nav-link" href="/user.php">Account</a>
                   </li>
 
                   <?php

@@ -9,6 +9,6 @@ if (isset($_GET['id'])) {
     $user = currentUser();
   }
   else{
-    redirect('/');
+    redirect('/sign_in.php');
   }
 }

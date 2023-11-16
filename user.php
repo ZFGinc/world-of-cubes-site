@@ -4,13 +4,10 @@ require_once __DIR__ . '/src/helperUser.php';
 ?>
 
 <!DOCTYPE html>
-<html style="font-size: 16px;" lang="ru">
+<html style="font-size: 16px;" lang="en">
   <head>
   <?php include_once __DIR__ . '/components/head.php'?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="{name}">
-    <meta name="description" content="">
 
     <title><?php echo $user['name'] ?></title>
 
@@ -28,12 +25,12 @@ require_once __DIR__ . '/src/helperUser.php';
 		"name": "",
 		"logo": "images/default-logo.png"
     </script>
-    <meta name="theme-color" content="#478ac9">
+    <meta name="theme-color" content="#A9EEE6">
     <meta property="og:title" content="user">
     <meta property="og:type" content="website">
     <meta data-intl-tel-input-cdn-path="intlTelInput/">
   </head>
-  <body data-path-to-root="./" data-include-products="true" class="u-body u-xl-mode" data-lang="ru">
+  <body data-path-to-root="./" data-include-products="true" class="u-body u-xl-mode" data-lang="en">
     
   <?php include_once __DIR__ . '/src/header.php'?>
 

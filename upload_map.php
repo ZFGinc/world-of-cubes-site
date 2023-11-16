@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/src/helpers.php';
-checkGuest();
+require_once __DIR__ . '/src/helperUser.php';
 ?>
 
 <!DOCTYPE html>
@@ -44,20 +44,20 @@ checkGuest();
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <div class="u-align-center u-container-style u-expanded-width-xs u-group u-shape-rectangle u-group-1">
           <div class="u-container-layout u-container-layout-1">
-            <h3 class="u-custom-font u-font-montserrat u-text u-text-default u-text-1">Registration</h3>
+            <h3 class="u-custom-font u-font-montserrat u-text u-text-default u-text-1">Upload new map</h3>
             <div class="u-expanded-width u-form u-login-control u-white u-form-1">
 
-              <form action="src/actions/register.php" enctype="multipart/form-data" class="u-clearfix u-form-custom-backend u-form-spacing-20 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 30px;" method="post">
+              <form action="src/actions/upload_map.php" enctype="multipart/form-data" class="u-clearfix u-form-custom-backend u-form-spacing-20 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 30px;" method="post">
                 <div class="u-form-group u-form-name">
                   <label for="name" class="u-label">
-                      Username
+                      Name
                     <input
                         class="u-grey-5 u-input u-input-rectangle u-input-1"
                         required="" 
                         type="text"
                         id="name"
                         name="name"
-                        placeholder="Enter your Username"
+                        placeholder="Enter map name"
                         value="<?php echo old('name') ?>"
                         <?php echo validationErrorAttr('name'); ?>>
                     <?php if(hasValidationError('name')): ?>
@@ -67,102 +67,66 @@ checkGuest();
                 </div>
 
                 <div class="u-form-group u-form-name">
-                  <label for="email" class="u-label">
-                    E-mail
-                    <input
+                  <label for="description" class="u-label">
+                    Description
+                    <textarea
                         class="u-grey-5 u-input u-input-rectangle u-input-1"
                         required="" 
                         type="text"
-                        id="email"
-                        name="email"
-                        placeholder="Enter your E-mail"
-                        value="<?php echo old('email') ?>"
-                        <?php echo validationErrorAttr('email'); ?>>
-                    <?php if(hasValidationError('email')): ?>
-                        <small><?php echo validationErrorMessage('email'); ?></small>
-                    <?php endif; ?>
+                        id="description"
+                        name="description"
+                        placeholder="Enter description"
+                        rows="4" 
+                        cols="50"
+                        value=""></textarea>
                   </label>
                 </div>
 
                 <div class="u-form-group u-form-password">
-                  <label for="password" class="u-label">
-                      Password
-                      <input
-                          class="u-grey-5 u-input u-input-rectangle u-input-2"
-                          required=""
-                          type="password"
-                          id="password"
-                          name="password"
-                          placeholder="******"
-                          <?php echo validationErrorAttr('password'); ?>
-                      >
-                      <?php if(hasValidationError('password')): ?>
-                          <small><?php echo validationErrorMessage('password'); ?></small>
-                      <?php endif; ?>
-                  </label>
-                </div>
-
-                <div class="u-form-group u-form-password">
-                  <label for="password_confirmation" class="u-label">
-                      Password
-                      <input
-                          class="u-grey-5 u-input u-input-rectangle u-input-2"
-                          required=""
-                          type="password"
-                          id="password_confirmation"
-                          name="password_confirmation"
-                          placeholder="******"
-                          <?php echo validationErrorAttr('password_confirmation'); ?>
-                      >
-                      <?php if(hasValidationError('password_confirmation')): ?>
-                          <small><?php echo validationErrorMessage('password_confirmation'); ?></small>
-                      <?php endif; ?>
-                  </label>
-                </div>
-
-                <div class="u-form-group u-form-password">
-                  <label for="avatar" class="u-label">
-                      Avatar
+                  <label for="icon" class="u-label">
+                      Icon
                       <input
                           class="u-grey-5 u-input u-input-rectangle u-input-2"
                           required=""
                           type="file"
-                          id="avatar"
-                          name="avatar"
-                          <?php echo validationErrorAttr('avatar'); ?>
+                          id="icon"
+                          name="icon"
+                          accept="image/png, image/jpeg"
+                          <?php echo validationErrorAttr('icon'); ?>
                       >
-                      <?php if(hasValidationError('avatar')): ?>
-                          <small><?php echo validationErrorMessage('avatar'); ?></small>
+                      <?php if(hasValidationError('icon')): ?>
+                          <small><?php echo validationErrorMessage('icon'); ?></small>
                       <?php endif; ?>
                   </label>
                 </div>
 
-                <div class="u-form-checkbox u-form-group">
-
-                  <fieldset>
-                    <label for="terms" class="u-block-d51a-57 u-field-label">
+                <div class="u-form-group u-form-password">
+                  <label for="archive" class="u-label">
+                      Zip file map
                       <input
-                        class="u-field-input"
-                        type="checkbox"
-                        id="terms"
-                        name="terms"
+                          class="u-grey-5 u-input u-input-rectangle u-input-2"
+                          required=""
+                          type="file"
+                          id="archive"
+                          name="archive"
+                          accept=".zip"
+                          <?php echo validationErrorAttr('archive'); ?>
                       >
-                      I accept the terms &amp; conditions
-                    </label>
-                  </fieldset>
+                      <?php if(hasValidationError('archive')): ?>
+                          <small><?php echo validationErrorMessage('archive'); ?></small>
+                      <?php endif; ?>
+                  </label>
                 </div>
 
-
                 <div class="u-align-right u-form-group u-form-submit">
-                  <a href="#" class="u-border-none u-btn u-btn-submit u-button-style u-palette-1-base u-btn-1">Register</a>
+                  <a href="#" class="u-border-none u-btn u-btn-submit u-button-style u-palette-1-base u-btn-1">Submit</a>
                   <input type="submit" value="submit" class="u-form-control-hidden">
                 </div>
                 <input type="hidden" value="" name="recaptchaResponse">
+                <input type="hidden" value="<?php echo $user['id'] ?>" name="userid", id="userid">
               </form>
 
             </div>
-            <p class="u-text u-text-default u-text-white u-text-2">Have an account? </p>
-            <a href="/sign_in.php" class="u-border-active-palette-2-base u-border-hover-palette-1-base u-border-none u-btn u-button-style u-login-control u-login-forgot-password u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2">Sign in!</a>
           </div>
         </div>
       </div>
