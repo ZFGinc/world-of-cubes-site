@@ -1,11 +1,21 @@
 <?php
 
-session_start();
+if (isset($user)) {
+    $conn = getPDO();
+    $id = $user['id'];
+    $sql = "SELECT id, icon, name, rating FROM maps WHERE author = " . $id;
 
-require_once __DIR__ . '/config.php';
+    $result = $conn->query($sql); 
 
-function redirect(string $path)
-{
-    header("Location: $path");
-    die();
+
+    if ($result->rowCount() > 0) {
+        while ($map = $result->fetch(\PDO::FETCH_ASSOC)) {
+            echo include __DIR__ . '/map/map_mini.php';
+        }
+        } else {
+        echo '<p class="u-text u-text-default u-text-1">This user has not posted his maps</p>';
+    }
 }
+
+
+?>

@@ -7,7 +7,7 @@ require_once __DIR__ . '/../helpers.php';
 $iconPath = null;
 $archivePath = null;
 $name = $_POST['name'] ?? null;
-$description = $_POST['decription'] ?? null;
+$description = $_POST['description'] ?? null;
 $icon = $_FILES['icon'] ?? null;
 $archive = $_FILES['archive'] ?? null;
 $author = $_POST['userid'] ?? null;
@@ -65,7 +65,7 @@ if (!empty($archive)) {
 
 $pdo = getPDO();
 
-$query = "INSERT INTO maps (name, icon, description, archive, raiting, author) VALUES (:name, :icon, :description, :archive, :rating, :author)";
+$query = "INSERT INTO maps (name, icon, description, archive, rating, author) VALUES (:name, :icon, :description, :archive, :rating, :author)";
 
 $params = [
     'name' => $name,

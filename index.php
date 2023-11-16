@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/src/helpers.php';
-require_once __DIR__ . '/src/helperUser.php';
 ?>
 
 <!DOCTYPE html>

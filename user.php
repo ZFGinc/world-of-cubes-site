@@ -58,53 +58,29 @@ require_once __DIR__ . '/src/helperUser.php';
     </section>
 
     <section class="u-align-center u-clearfix u-grey-10 u-section-3" id="sec-0504">
-      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1"><!--products--><!--products_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/products_options_json-->
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <div class="u-expanded-width u-products u-products-1" data-site-sorting-prop="created" data-site-sorting-order="desc" data-products-datasource="site" data-items-per-page="3" data-products-id="1">
-          <div class="u-repeater u-repeater-1"><!--product_item-->
-            <div class="u-align-center u-container-style u-products-item u-repeater-item u-white u-repeater-item-1" data-product-id="6">
-              <div class="u-container-layout u-similar-container u-container-layout-1"><!--product_image-->
-                <a class="u-product-title-link" href="products/женские-туфли.html"><img alt="" class="u-expanded-width u-image u-image-contain u-image-default u-product-control u-image-1" src="images/d754debf.svg"></a><img src="images/414330ad.svg" class="u-product-second-image"><!--/product_image--><!--product_title-->
-                <h3 class="u-product-control u-text u-text-1">
-                  <a class="u-product-title-link" href="products/женские-туфли.html">Женские туфли</a>
-                </h3><!--/product_title--><!--product_price-->
-                <div class="u-product-control u-product-price u-product-price-1" data-add-zero-cents="false">
-                  <div class="u-price-wrapper u-spacing-10"><!--product_old_price-->
-                    <div class="u-hide-price u-old-price">$20</div><!--/product_old_price--><!--product_regular_price-->
-                    <div class="u-price u-text-palette-2-base" style="font-size: 1.5rem; font-weight: 700;">$17</div><!--/product_regular_price-->
-                  </div>
-                </div><!--/product_price-->
-              </div>
-            </div><div class="u-align-center u-container-style u-products-item u-repeater-item u-white u-repeater-item-2" data-product-id="5">
-              <div class="u-container-layout u-similar-container u-container-layout-2"><!--product_image-->
-                <a class="u-product-title-link" href="products/мужская-футболка.html"><img alt="" class="u-expanded-width u-image u-image-contain u-image-default u-product-control u-image-2" src="images/53c4c417.svg"></a><!--/product_image--><!--product_title-->
-                <h3 class="u-product-control u-text u-text-2">
-                  <a class="u-product-title-link" href="products/мужская-футболка.html">Мужская футболка</a>
-                </h3><!--/product_title--><!--product_price-->
-                <div class="u-product-control u-product-price u-product-price-2" data-add-zero-cents="false">
-                  <div class="u-price-wrapper u-spacing-10"><!--product_old_price-->
-                    <div class="u-hide-price u-old-price">$300</div><!--/product_old_price--><!--product_regular_price-->
-                    <div class="u-price u-text-palette-2-base" style="font-size: 1.5rem; font-weight: 700;">$245</div><!--/product_regular_price-->
-                  </div>
-                </div><!--/product_price-->
-              </div>
-            </div><div class="u-align-center u-container-style u-products-item u-repeater-item u-white u-repeater-item-3" data-product-id="4">
-              <div class="u-container-layout u-similar-container u-container-layout-3"><!--product_image-->
-                <a class="u-product-title-link" href="products/летняя-шляпа.html"><img alt="" class="u-expanded-width u-image u-image-contain u-image-default u-product-control u-image-3" src="images/6537f30a.svg"></a><!--/product_image--><!--product_title-->
-                <h3 class="u-product-control u-text u-text-3">
-                  <a class="u-product-title-link" href="products/летняя-шляпа.html">Летняя шляпа</a>
-                </h3><!--/product_title--><!--product_price-->
-                <div class="u-product-control u-product-price u-product-price-3" data-add-zero-cents="false">
-                  <div class="u-price-wrapper u-spacing-10"><!--product_old_price-->
-                    <div class="u-hide-price u-old-price">$25</div><!--/product_old_price--><!--product_regular_price-->
-                    <div class="u-price u-text-palette-2-base" style="font-size: 1.5rem; font-weight: 700;">$19</div><!--/product_regular_price-->
-                  </div>
-                </div><!--/product_price-->
-              </div>
-            </div><!--/product_item--><!--product_item-->
-            <!--/product_item--><!--product_item-->
-            <!--/product_item-->
+          <div class="u-repeater u-repeater-1">
+            
+          <?php
+          if (isset($user)) {
+            $conn = getPDO();
+            $sql = "SELECT id, icon, name, rating FROM maps WHERE author = " . $user['id'];
+
+            $result = $conn->query($sql); 
+
+            if ($result->rowCount() > 0) {
+              while ($map = $result->fetch(\PDO::FETCH_ASSOC)) {
+                echo include './src/map/map_mini.php';
+              }
+            } else {
+              echo '<p class="u-text u-text-default u-text-1">This user has not posted his maps</p>';
+            }
+          }
+          ?>
+
           </div>
-        </div><!--/products-->
+        </div>
       </div>
     </section>
     
