@@ -1,12 +1,12 @@
 <div class="u-align-center u-container-style u-products-item u-repeater-item u-white u-repeater-item-1">
   <div class="u-container-layout u-similar-container u-container-layout-3">
 
-    <a class="u-product-title-link" href="/?id=<?php echo $map['id'] ?>">
+    <a class="u-product-title-link" href="map.php/?id=<?php echo $map['id'] ?>">
       <img alt="" class="u-expanded-width u-image u-image-contain u-image-default u-product-control u-image-3" src="<?php echo $map['icon'] ?>">
     </a>
 
     <h3 class="u-product-control u-text u-text-3">
-      <a class="u-product-title-link" href="/?id=<?php echo $map['id'] ?>">
+      <a class="u-product-title-link" href="map.php/?id=<?php echo $map['id'] ?>">
         <?php echo $map['name'] ?>
       </a>
     </h3>

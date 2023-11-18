@@ -140,6 +140,15 @@ function getUser(int $id): array|false
     return $stmt->fetch(\PDO::FETCH_ASSOC);
 }
 
+function getMap(int $id): array|false
+{
+    $pdo = getPDO();
+
+    $stmt = $pdo->prepare("SELECT * FROM maps WHERE id = :id");
+    $stmt->execute(['id' => $id]);
+    return $stmt->fetch(\PDO::FETCH_ASSOC);
+}
+
 function logout(): void
 {
     unset($_SESSION['user']['id']);

@@ -19,7 +19,7 @@ $two = '<li class="u-nav-item">
         <a href="/" class="u-image u-logo u-image-1">
           <img src="/assets/images/icon.png" class="u-logo-image u-logo-image-1">
         </a>
-        <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
+        <nav class="u-menu-1">
           <div class="u-nav-container">
             <ul class="u-nav u-unstyled u-nav-1">
               <li class="u-nav-item">
