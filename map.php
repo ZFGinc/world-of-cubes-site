@@ -10,6 +10,11 @@ require_once __DIR__ . '/src/helpers.php';
   } else {
     redirect('/');
   }
+
+  $auth = checkAuth();
+  if($auth == true){
+    $user = getUserId();
+  }
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +26,8 @@ require_once __DIR__ . '/src/helpers.php';
     <title>
       <?php echo $map['name'] ?>
     </title>
+
+    <SCRIPT SRC="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></SCRIPT>
     <link rel="stylesheet" href="/assets/css/map.css" media="screen">
     <link rel="stylesheet" href="/assets/css/nicepage.css" media="screen">
 
@@ -29,12 +36,43 @@ require_once __DIR__ . '/src/helpers.php';
 
     <meta name="generator" content="Nicepage 5.21.10, nicepage.com">
     <link rel="stylesheet" data-font="Josefin+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i" href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i">
+
+    <style>
+      .left{
+        width: 35px;
+        height: 15px;
+        margin: 10px
+      }
+      .right{
+        width: 35px;
+        height: 15px;
+        margin: 10px
+      }
+    </style>
+
+    <script>
+      function sendrating (star) {
+        $.get({
+          url: '/src/actions/sendrating.php?id=' + <?php echo $_GET['id'] ?> + '&star=' + star + '&user=<?php echo $user; ?>', 
+          success: function(result){console.log(result);}
+        });
+        redirectThis();
+        return false;
+      }
+      function redirectLogin(){
+        window.location.href = "/sign_in.php";
+      }
+      function redirectThis(){
+        window.location.href = "/map.php/?id=<?php echo $_GET['id'] ?>";
+      }
+    </script>
+  
   </head>
   <body class="u-body u-xl-mode">
 
     <?php include(__DIR__ . '/src/header.php'); ?>
 
-    <section class="u-clearfix u-block-a6b7-1" custom-posts-hash="[I,T]" data-state="{&quot;min-height&quot;:{&quot;canCollapse&quot;:{&quot;XL&quot;:null,&quot;LG&quot;:null,&quot;MD&quot;:null,&quot;SM&quot;:null,&quot;XS&quot;:null}}}" data-post-id="2128098000" data-section-properties="{&quot;grid-spacing&quot;:&quot;0&quot;,&quot;spacingAdditional&quot;:&quot;none&quot;,&quot;width&quot;:&quot;section&quot;,&quot;align&quot;:&quot;center&quot;,&quot;margin&quot;:&quot;none&quot;,&quot;stretch&quot;:true}" data-id="a6b7" data-posts-content="[{'images':[[570,655]],'maps':[],'videos':[],'icons':[{}],'textWidth':570,'textHeight':655,'id':1,'groupId':2,'headingProp':'h2','textProp':'text'}]" data-height-lg="317.78099999999995" data-style="new-grid-01" id="sec-16da" data-source="Sketch" data-manual-length-set="true">
+    <section class="u-clearfix u-block-a6b7-1">
     
       <div class="u-clearfix u-sheet u-block-a6b7-21">
         <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-block-a6b7-3">
@@ -45,9 +83,29 @@ require_once __DIR__ . '/src/helpers.php';
                     <img class="u-expanded-width u-image u-block-a6b7-23" src="
                       <?php echo "/" . $map['icon'] ?>
                     " data-image-width="1080" data-image-height="1080">
-                    <a href="<?php echo "/" . $map['archive'] ?>" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-3 u-text-body-alt-color u-text-hover-white u-block-a6b7-16">
-                      ​Скачать&nbsp;
-                    </a>
+                    <div style=" display: inline-flex; justify-content:space-between;">
+                      <a href="<?php echo "/" . $map['archive'] ?>" class="left u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-3 u-text-body-alt-color u-text-hover-white u-block-a6b7-16">
+                        ​Скачать&nbsp;
+                      </a>
+                      <a href="/user.php?id=<?php echo $map['author'] ?>" class="right u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-3 u-text-body-alt-color u-text-hover-white u-block-a6b7-16">
+                        <?php echo $author['name'] ?>
+                      </a>
+                    </div>
+                    <div style=" display: inline-flex; justify-content:space-between; visibility: <?php if($auth == true && hasMapRatingSend($_GET['id'])) echo 'hidden';?>;">
+                      <p class="u-small-text u-text u-text-variant" style="margin-left: 35px;">Оценить</p>
+                      <div class="rating-area">
+                        <input type="radio" id="star-5" name="rating-5" value="5" onclick="<?php if($auth == true) echo 'sendrating(5)'; else echo 'redirectLogin()'?>">
+                        <label for="star-5" title="Оценка «5»"></label>	
+                        <input type="radio" id="star-4" name="rating-4" value="4" onclick="<?php if($auth == true) echo 'sendrating(4)'; else echo 'redirectLogin()'?>">
+                        <label for="star-4" title="Оценка «4»"></label>    
+                        <input type="radio" id="star-3" name="rating-3" value="3" onclick="<?php if($auth == true) echo 'sendrating(3)'; else echo 'redirectLogin()'?>">
+                        <label for="star-3" title="Оценка «3»"></label>  
+                        <input type="radio" id="star-2" name="rating-2" value="2" onclick="<?php if($auth == true) echo 'sendrating(2)'; else echo 'redirectLogin()'?>">
+                        <label for="star-2" title="Оценка «2»"></label>    
+                        <input type="radio" id="star-1" name="rating-1" value="1" onclick="<?php if($auth == true) echo 'sendrating(1)'; else echo 'redirectLogin()'?>">
+                        <label for="star-1" title="Оценка «1»"></label>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="u-align-center u-container-style u-layout-cell u-size-30 u-white u-block-a6b7-8">
@@ -58,9 +116,13 @@ require_once __DIR__ . '/src/helpers.php';
                     <p class="u-small-text u-text u-text-variant u-block-a6b7-24">
                       <?php echo $map['description'] ?>
                     </p>
-                    <a href="/user.php?id=<?php echo $map['author'] ?>" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-block-a6b7-13">
-                      <?php echo $author['name'] ?>
-                    </a>
+                    <div class="rating-result">
+                        <span class="<?php if($map['rating'] >= 1) echo 'active';?>"></span>	
+                        <span class="<?php if($map['rating'] >= 2) echo 'active';?>"></span>    
+                        <span class="<?php if($map['rating'] >= 3) echo 'active';?>"></span>  
+                        <span class="<?php if($map['rating'] >= 4) echo 'active';?>"></span>    
+                        <span class="<?php if($map['rating'] == 5) echo 'active';?>"></span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -70,10 +132,7 @@ require_once __DIR__ . '/src/helpers.php';
       </div>
     </section>
 
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-19c3"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1">ZFGin, 2023</p>
-      </div>
-    </footer>
+    <?php include_once __DIR__ . '/src/footer.php'?>
     
   </body>
 </html>

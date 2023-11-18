@@ -14,7 +14,13 @@
     <div class="u-product-control u-product-price u-product-price-3" data-add-zero-cents="false">
       <div class="u-price-wrapper u-spacing-10">
         <div class="u-price u-text-palette-2-base" style="font-size: 1.5rem; font-weight: 700;">
-          <?php echo $map['rating'] ?>
+          <div class="rating-result">
+            <span class="<?php if($map['rating'] >= 1) echo 'active';?>"></span>	
+            <span class="<?php if($map['rating'] >= 2) echo 'active';?>"></span>    
+            <span class="<?php if($map['rating'] >= 3) echo 'active';?>"></span>  
+            <span class="<?php if($map['rating'] >= 4) echo 'active';?>"></span>    
+            <span class="<?php if($map['rating'] == 5) echo 'active';?>"></span>
+          </div>
         </div>
       </div>
     </div>

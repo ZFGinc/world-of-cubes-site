@@ -19,12 +19,6 @@ require_once __DIR__ . '/src/helperUser.php';
 
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     
-    <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "",
-		"logo": "images/default-logo.png"
-    </script>
     <meta name="theme-color" content="#A9EEE6">
     <meta property="og:title" content="user">
     <meta property="og:type" content="website">
@@ -86,9 +80,6 @@ require_once __DIR__ . '/src/helperUser.php';
     </section>
     
 
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-19c3"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1">ZFGin, 2023</p>
-      </div>
-    </footer>
+    <?php include_once __DIR__ . '/src/footer.php'?>
   </body>
 </html>

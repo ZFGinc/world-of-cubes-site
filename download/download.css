@@ -1,0 +1,145 @@
+ .u-section-1 {
+  background-image: none;
+  min-height: 852px;
+}
+
+.u-section-1 .u-shape-1 {
+  height: 327px;
+  margin-top: 2px;
+  margin-bottom: 0;
+}
+
+.u-section-1 .u-group-1 {
+  width: 977px;
+  min-height: 409px;
+  margin: -167px auto 60px;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding: 70px 30px;
+}
+
+.u-section-1 .u-text-1 {
+  font-weight: 600;
+  margin: 0 auto;
+}
+
+.u-section-1 .u-group-2 {
+  width: 470px;
+  min-height: 80px;
+  height: auto;
+  margin: 16px auto 0;
+}
+
+.u-section-1 .u-btn-1 {
+  border-style: solid;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 1.125rem;
+  text-transform: none;
+  align-self: center;
+  margin: 0 auto 0 0;
+  padding: 19px 36px 21px 34px;
+}
+
+.u-section-1 .u-btn-2 {
+  border-style: solid;
+  font-weight: 700;
+  letter-spacing: 1px;
+  align-self: center;
+  font-size: 1.125rem;
+  text-transform: none;
+  background-image: none;
+  margin: -78px 2px 0 auto;
+  padding: 20px 71px 20px 70px;
+}
+
+.u-section-1 .u-text-2 {
+  font-size: 1.125rem;
+  width: 406px;
+  margin: 39px auto 0;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-group-1 {
+    width: 940px;
+  }
+
+  .u-section-1 .u-group-2 {
+    height: auto;
+  }
+
+  .u-section-1 .u-btn-2 {
+    padding-right: 84px;
+    padding-left: 83px;
+  }
+}
+
+@media (max-width: 991px) {
+   .u-section-1 {
+    min-height: 542px;
+  }
+
+  .u-section-1 .u-shape-1 {
+    height: 243px;
+  }
+
+  .u-section-1 .u-group-1 {
+    width: 720px;
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+   .u-section-1 {
+    min-height: 520px;
+  }
+
+  .u-section-1 .u-group-1 {
+    width: 540px;
+    min-height: 368px;
+  }
+}
+
+@media (max-width: 575px) {
+   .u-section-1 {
+    min-height: 559px;
+  }
+
+  .u-section-1 .u-shape-1 {
+    height: 238px;
+  }
+
+  .u-section-1 .u-group-1 {
+    width: 340px;
+    min-height: 418px;
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .u-section-1 .u-group-2 {
+    width: 320px;
+  }
+
+  .u-section-1 .u-btn-1 {
+    padding-right: 61px;
+    padding-left: 59px;
+  }
+
+  .u-section-1 .u-btn-2 {
+    padding-right: 51px;
+    padding-left: 50px;
+    margin-right: 0;
+  }
+
+  .u-section-1 .u-text-2 {
+    width: 320px;
+  }
+}

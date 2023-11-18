@@ -140,6 +140,15 @@ function getUser(int $id): array|false
     return $stmt->fetch(\PDO::FETCH_ASSOC);
 }
 
+function getUserId(): int|false
+{
+    if (!isset($_SESSION['user'])) {
+        return false;
+    }
+
+    return $_SESSION['user']['id'];
+}
+
 function getMap(int $id): array|false
 {
     $pdo = getPDO();
@@ -168,4 +177,40 @@ function checkGuest(): void
     if (isset($_SESSION['user']['id'])) {
         redirect('/user.php');
     }
+}
+
+function addMapRatingUserSend(int $idMap): void
+{
+    $user = currentUser();
+    $pdo = getPDO();
+
+    $arrayMaps = getMapRatingUserSend();
+    array_push($arrayMaps, $idMap);
+
+    $jsonarray = json_encode($arrayMaps);
+
+    $update = "UPDATE users SET map_rating_send='$jsonarray' WHERE id=".$user['id'];
+    $pdo->query($update);
+}
+
+function getMapRatingUserSend(): array
+{
+    $user = currentUser();
+
+    if($user['map_rating_send'] == null) return array();
+
+    $arrayMaps = json_decode($user['map_rating_send'], true);
+
+    return $arrayMaps;
+}
+
+function hasMapRatingSend(int $idMap): bool
+{
+    $array = getMapRatingUserSend();
+
+    if (in_array($idMap, $array)) {
+        return true;
+    }
+
+    return false;
 }

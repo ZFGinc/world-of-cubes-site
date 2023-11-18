@@ -1,12 +1,12 @@
 <?php
 $first = '<li class="u-nav-item">
-<form action="src/actions/logout.php" method="post">
+<form action="/src/actions/logout.php" method="post">
   <button class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" role="button">Quit</button>
 </form>
 </li>';
 
 $two = '<li class="u-nav-item">
-<form action="src/actions/logout.php" method="post">
+<form action="/src/actions/logout.php" method="post">
     <button class="u-button-style u-nav-link" role="button">Quit</button>
 </form>
 </li>';
@@ -29,7 +29,7 @@ $two = '<li class="u-nav-item">
                 <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/upload_map.php" style="padding: 10px 20px;">New map</a>
               </li>
               <li class="u-nav-item">
-                <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="" style="padding: 10px 20px;">Download game</a>
+                <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/download" style="padding: 10px 20px;">Download game</a>
               </li>
               <li class="u-nav-item">
                 <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/user.php" style="padding: 10px 20px;">Account</a>

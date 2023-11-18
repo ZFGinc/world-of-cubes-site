@@ -51,7 +51,7 @@ require_once __DIR__ . '/src/helpers.php';
             <li data-u-target="#carousel-210e" class="u-active u-grey-30" data-u-slide-to="0"></li>
             <li data-u-target="#carousel-210e" class="u-grey-30" data-u-slide-to="1"></li>
           </ol>
-          <div class="u-carousel-inner" role="listbox">
+          <div class="u-carousel-inner u-center-slider" role="listbox">
               <?php
                 $conn = getPDO();
                 $sql = "SELECT id, icon, name, rating, description FROM maps ORDER BY rating DESC LIMIT 5;";
@@ -120,9 +120,6 @@ require_once __DIR__ . '/src/helpers.php';
     
     
     
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-19c3"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1">ZFGin, 2023</p>
-      </div>
-    </footer>
+    <?php include_once __DIR__ . '/src/footer.php'?>
   </body>
 </html>
